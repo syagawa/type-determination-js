@@ -37,7 +37,15 @@
 
   };
 
+  const determinationByClass = function(val){
+    let res = Object.prototype.toString.call(val);
+    res = res.replace(/\[|\]|object|\s/g, "");
+    return res;
+  };
+
+
   global.APP = global.APP ? global.APP : {};
   global.APP.determination = determination;
+  global.APP.determinationByClass = determinationByClass;
 
 })(window);
