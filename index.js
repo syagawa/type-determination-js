@@ -14,6 +14,9 @@
     if(typeof val === "undefined"){
       return "undefined";
     }
+    if(typeof val === "symbol"){
+      return "symbol";
+    }
     if(val === null){
       return "null";
     }
