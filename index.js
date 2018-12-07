@@ -6,7 +6,11 @@
       return "string";
     }
     if(typeof val === "number"){
-      return "number";
+      if(Number.isNaN(val)){
+        return "NaN";
+      }else{
+        return "number";
+      }
     }
     if(typeof val === "boolean"){
       return "boolean";
@@ -43,6 +47,9 @@
   const determinationByClass = function(val){
     let res = Object.prototype.toString.call(val);
     res = res.replace(/\[|\]|object|\s/g, "");
+    if(Number.isNaN(val)){
+      res = "NaN";
+    }
     return res;
   };
 
