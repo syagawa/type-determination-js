@@ -38,6 +38,14 @@
       return "regexp";
     }
 
+    if(val instanceof Map){
+      return "map";
+    }
+
+    if(val instanceof Set){
+      return "set";
+    }
+
     if(val instanceof Object){
       return "object";
     }
@@ -47,6 +55,12 @@
   const determinationByClass = function(val){
     let res = Object.prototype.toString.call(val);
     res = res.replace(/\[|\]|object|\s/g, "");
+    if(val instanceof Map){
+      res = "map";
+    }
+    if(val instanceof Set){
+      res = "set";
+    }
     if(Number.isNaN(val)){
       res = "NaN";
     }
