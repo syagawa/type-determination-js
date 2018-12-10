@@ -46,6 +46,15 @@
       return "set";
     }
 
+    if(val instanceof WeakMap){
+      return "weakmap";
+    }
+
+    if(val instanceof WeakSet){
+      return "weakset";
+    }
+
+
     if(val instanceof Object){
       return "object";
     }
@@ -59,7 +68,13 @@
       res = "map";
     }
     if(val instanceof Set){
-      res = "set";
+      res = "weakset";
+    }
+    if(val instanceof WeakMap){
+      return "weakmap";
+    }
+    if(val instanceof WeakSet){
+      return "set";
     }
     if(Number.isNaN(val)){
       res = "NaN";
